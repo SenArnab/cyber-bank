@@ -113,7 +113,7 @@ const AuthForm = ({type} : {type: string}) => {
                                <div className="flex gap-4">
                                     <CustomInput control={form.control}
                                     name='firstName' label="First Name"
-                                    placeholder='Please Enter your first name' />
+                                    placeholder='Enter your first name' />
 
                                     <CustomInput control={form.control}
                                     name='lastName' label="Last Name"
