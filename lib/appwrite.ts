@@ -20,10 +20,10 @@ export async function createSessionClient() {
       return new Account(client);
     },
     get database() {
-        return new Databases(client)
+      return new Databases(client);
     },
     get user() {
-        return new Users(client)
+      return new Users(client);
     }
   };
 }
