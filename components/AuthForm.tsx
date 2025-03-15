@@ -48,11 +48,26 @@ const AuthForm = ({type} : {type: string}) => {
         
         try {
             //  sign up appwrite
-
+            
             if (type === 'sign-up') {
-                const newUser = await signUp(data);
+                const userData = {
+                    firstName: data.firstName!,
+                    lastName: data.lastName!,
+                    address1: data.address1!,
+                    city: data.city!,
+                    state: data.state!,
+                    postalCode: data.postalCode!,
+                    dateOfBirth: data.dateOfBirth!,
+                    ssn: data.ssn!,
+                    email: data.email,
+                    password: data.password
+                }
+
+                const newUser = await signUp(userData);
+
                 setUser(newUser);
             }
+
             if (type === 'sign-in') {
                 const response = await signIn({
                     email: data.email,
@@ -132,7 +147,7 @@ const AuthForm = ({type} : {type: string}) => {
                                 <div className="flex gap-4">
                                     <CustomInput control={form.control}
                                     name='state' label="State"
-                                    placeholder='Example: West Bengal' />
+                                    placeholder="Enter you state's name" />
 
                                     <CustomInput control={form.control}
                                     name='postalCode' label="Postal Code"
@@ -145,8 +160,8 @@ const AuthForm = ({type} : {type: string}) => {
                                     placeholder='YYYY-MM-DD' />
 
                                     <CustomInput control={form.control}
-                                    name='panNum' label="PAN Number"
-                                    placeholder='Enter PAN number' />
+                                    name='ssn' label="SSN Number"
+                                    placeholder='Enter SSN number' />
                                 </div>
                             </>
                         )}
